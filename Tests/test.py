@@ -55,7 +55,20 @@ class MyTestCase(unittest.TestCase):
     #
     #     self.assertEqual(1, machine.nbCafeServis)  #
 
-        
+    # Test Théophile
+    def test_unGobeletDeuxDemandes(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        machine.stockGobelets = 1
+        machine.stockCafe = 30
+        piece50 = piece.piece(50)
+        cafe1 = machine.ajouter_une_piece(piece50)
+        cafe2 = machine.ajouter_une_piece(piece50)
+
+        self.assertTrue(cafe1)
+        self.assertFalse(cafe2)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
