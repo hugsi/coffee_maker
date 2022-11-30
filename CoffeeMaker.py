@@ -1,5 +1,4 @@
-from monnayeur import Monnayeur
-import piece
+from Class import monnayeur, piece
 
 
 class CoffeeMaker:
@@ -9,7 +8,7 @@ class CoffeeMaker:
         self.stockGobelets = 50
         self.stockSucre = 100
         self.demandeSucre = 0
-        self.monnayeur = Monnayeur()
+        self.monnayeur = monnayeur.Monnayeur()
 
     def coule_cafe(self):
         self.stockCafe -= 1
@@ -22,7 +21,7 @@ class CoffeeMaker:
         self.demandeSucre += 1 
         print("J'ajoute du sucre")
 
-    def ajouter_une_piece(self, monnaie: piece):
+    def ajouter_une_piece(self, monnaie):
         self.monnayeur.ajouter_monnaie(monnaie)
         if self.monnayeur.check_monnaie() == 1:
             self.coule_cafe()
