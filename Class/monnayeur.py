@@ -1,4 +1,5 @@
-import constant
+from Variables import constant
+from Class import piece
 
 
 class Monnayeur:
@@ -7,10 +8,11 @@ class Monnayeur:
         self.nombre_piece = list()
         self.valeur_monnaie = 0
 
-    def rendre_monnaie(self, monnaie):
+    def rendre_monnaie(self, monnaie: piece):
         print("Monnaie rendue: " + str(monnaie))
 
-    def ajouter_monnaie(self, monnaie):
+    def ajouter_monnaie(self, monnaie: piece):
+        self.valeur_monnaie += monnaie.valeur
         self.nombre_piece.append(monnaie)
 
     def check_monnaie(self):
