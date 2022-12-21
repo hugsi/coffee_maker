@@ -66,6 +66,8 @@ class MyTestCase(unittest.TestCase):
 
         self.assertTrue(cafe1)
         self.assertFalse(cafe2)
+        self.assertEqual(machine.monnayeur.monnaie_rendue,piece50)
+
 
 
 
