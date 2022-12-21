@@ -61,6 +61,7 @@ class MyTestCase(unittest.TestCase):
         machine.stockGobelets = 1
         machine.stockCafe = 30
         piece50 = piece.piece(50)
+
         cafe1 = machine.ajouter_une_piece(piece50)
         cafe2 = machine.ajouter_une_piece(piece50)
 
@@ -68,7 +69,59 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(cafe2)
         self.assertEqual(machine.monnayeur.monnaie_rendue,piece50)
 
+    def test_ajouterZeroDose(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        dosesManquantes = 0
+        machine.stockCafe = 30 - dosesManquantes
+        
+        machine.ajouter_cafe(dosesManquantes+1)
 
+        self.assertEqual(30,machine.stockCafe)
+
+    def test_ajouterUneDose(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        dosesManquantes = 1
+        machine.stockCafe = 30 - dosesManquantes
+        
+        machine.ajouter_cafe(dosesManquantes+1)
+
+        self.assertEqual(30,machine.stockCafe)
+
+    def test_ajouterTrenteDoses(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        dosesManquantes = 30
+        machine.stockCafe = 30 - dosesManquantes
+        
+        machine.ajouter_cafe(dosesManquantes+1)
+
+        self.assertEqual(30,machine.stockCafe)
+
+    def test_ajouterZeroGobelet(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        gobeletsManquants = 0
+        machine.stockGobelets = 50 - gobeletsManquants
+        
+        machine.ajouter_gobelet(gobeletsManquants+1)
+
+        self.assertEqual(50,machine.stockGobelets)
+    
+    def test_ajouterUnGobelet(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        gobeletsManquants = 1
+        machine.stockGobelets = 50 - gobeletsManquants
+        
+        machine.ajouter_gobelet(gobeletsManquants+1)
+
+        self.assertEqual(50,machine.stockGobelets)
+
+    def test_ajouterCinquanteGobelets(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        gobeletsManquants = 50
+        machine.stockGobelets = 50 - gobeletsManquants
+        
+        machine.ajouter_gobelet(gobeletsManquants+1)
+
+        self.assertEqual(50,machine.stockGobelets)
 
 
 

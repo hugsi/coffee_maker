@@ -37,3 +37,17 @@ class CoffeeMaker:
             print('Crédit insuffisant : ' + str(self.monnayeur.valeur_monnaie))
             return False
 
+    def ajouter_cafe(self,doses):
+        if (self.stockCafe+doses>30):
+            # ne pas dépasser le max de doses
+            self.stockCafe = 30
+        else:
+            self.stockCafe += doses
+
+    def ajouter_gobelet(self,gobelets):
+        if (self.stockGobelets+gobelets>30):
+            # ne pas dépasser le max de gobelets
+            self.stockGobelets = 50
+        else:
+            self.stockGobelets += gobelets
+
