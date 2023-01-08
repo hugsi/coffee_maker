@@ -20,17 +20,6 @@ class Monnayeur:
     def check_monnaie(self):
         if 4 == len(self.list_piece) & self.get_valeur_monnaie() < constant.COFFEE_PRICE:
             print("Nombre maximal de pieces atteintes")
-            self.rendre_monnaie(self.valeur_monnaie)
-        for i in self.nombre_piece:
-            #self.valeur_monnaie = i.valeur + self.valeur_monnaie
-            if int(self.valeur_monnaie) >= int(constant.COFFEE_PRICE):
-                self.monnaie_rendue = int(self.valeur_monnaie) - int(constant.COFFEE_PRICE)
-                if int(self.monnaie_rendue) > 0:
-                    self.rendre_monnaie(self.monnaie_rendue)
-                return 1
-            elif int(self.valeur_monnaie) < int(constant.COFFEE_PRICE):
-                return 0
-
             self.rendre_monnaie()
         if self.get_valeur_monnaie() >= int(constant.COFFEE_PRICE):
             self.payer_cafe()
@@ -48,4 +37,3 @@ class Monnayeur:
 
     def payer_cafe(self):
         self.valeur_monnaie = int(self.valeur_monnaie) - int(constant.COFFEE_PRICE)
-

@@ -27,9 +27,20 @@ class CoffeeMaker:
         print("J'ajoute du sucre")
 
     def ajouter_une_piece(self, monnaie):
-        self.monnayeur.ajouter_monnaie(monnaie)
-        if self.monnayeur.check_monnaie() == 1:
-            self.coule_cafe()
+        if (self.stockCafe > 0 | self.stockGobelets > 0 | self.cancelled is not False): 
+            self.monnayeur.ajouter_monnaie(monnaie)
+            if self.monnayeur.check_monnaie() == 1:
+                self.coule_cafe()
+        else:
+            self.monnayeur.valeur_monnaie = monnaie.valeur
+            self.monnayeur.rendre_monnaie()
+            if(self.cancelled is True):
+                print("Commande Annulée")
+            if(self.stockCafe == 0):
+                print("Plus de café")
+            if(self.stockGobelets == 0):
+                print("Plus de gobelet")
+            
 
     def ajouter_cafe(self, doses):
         if self.stockCafe + doses > 30:

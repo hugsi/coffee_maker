@@ -172,6 +172,7 @@ class MyTestCase(unittest.TestCase):
             pieceR += random.choice(pieces)
         
         self.assertGreater(pieceR, 40)
+        print("Monnaie donnée : " + str(pieceR))
         machine.ajouter_une_piece(piece.piece(pieceR))
         
     def test_annulation(self):
@@ -182,6 +183,7 @@ class MyTestCase(unittest.TestCase):
             pieceR += random.choice(pieces)
 
         machine.cancelled = True
+        print("Monnaie donnée : " + str(pieceR))
         machine.ajouter_une_piece(piece.piece(pieceR))
             
     def test_plusDeGoblet(self):
@@ -191,9 +193,8 @@ class MyTestCase(unittest.TestCase):
         for i in range(4):
             pieceR += random.choice(pieces)
         machine.stockGobelets = 0
+        print("Monnaie donnée : " + str(pieceR))
         machine.ajouter_une_piece(piece.piece(pieceR))
-
-
 
 if __name__ == '__main__':
     unittest.main()
