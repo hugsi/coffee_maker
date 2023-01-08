@@ -195,6 +195,33 @@ class MyTestCase(unittest.TestCase):
         machine.stockGobelets = 0
         print("Monnaie donnée : " + str(pieceR))
         machine.ajouter_une_piece(piece.piece(pieceR))
+   
+    #Test Quentin
+    def test_cafecoule(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece40 = piece.piece(30)
+
+        machine.ajouter_une_piece(piece40)
+
+    def test_encaissement(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece50 = piece.piece(50).valeur
+
+        print("Monnaie encaissée : " + str(piece50))
+
+    def test_plusDeCafe(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece40 = piece.piece(40).valeur
+        machine.stockCafe = 0
+        print("Monnaie donnée : " + str(piece40))
+        machine.ajouter_une_piece(piece.piece(piece40))
+
+    def test_plusDeau(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece40 = piece.piece(40).valeur
+        machine.stockEau = 0
+        print("Monnaie donnée : " + str(piece40))
+        machine.ajouter_une_piece(piece.piece(piece40))
 
 if __name__ == '__main__':
     unittest.main()
