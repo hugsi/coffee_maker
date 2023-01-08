@@ -1,2 +1,7 @@
 .vscode/
 .vs/
+Class/__pycache__/CoffeeMaker.cpython-310.pyc
+Class/__pycache__/monnayeur.cpython-310.pyc
+Class/__pycache__/piece.cpython-310.pyc
+Tests/__pycache__/test.cpython-310.pyc
+Variables/__pycache__/constant.cpython-310.pyc
