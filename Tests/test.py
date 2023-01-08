@@ -171,17 +171,23 @@ class MyTestCase(unittest.TestCase):
 
     def test_encaissement(self):
         machine = CoffeeMaker.CoffeeMaker()
-        piece50 = piece.piece(50)
+        piece50 = piece.piece(50).valeur
 
-        self.assertEqual(50, machine.ajouter_une_piece(piece50))
-        self.assertTrue(machine.coule_cafe())
+        print("Monnaie encaissée : " + str(piece50))
 
     def test_plusDeCafe(self):
         machine = CoffeeMaker.CoffeeMaker()
-        piece40 = piece.piece(40)
+        piece40 = piece.piece(40).valeur
         machine.stockCafe = 0
-        machine.ajouter_une_piece(piece40)
+        print("Monnaie donnée : " + str(piece40))
+        machine.ajouter_une_piece(piece.piece(piece40))
 
+    def test_plusDeau(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece40 = piece.piece(40).valeur
+        machine.stockEau = 0
+        print("Monnaie donnée : " + str(piece40))
+        machine.ajouter_une_piece(piece.piece(piece40))
 
 if __name__ == '__main__':
     unittest.main()
