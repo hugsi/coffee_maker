@@ -8,6 +8,8 @@ class CoffeeMaker:
         self.stockGobelets = 50
         self.stockSucre = 100
         self.demandeSucre = 0
+        self.stockEau = 0
+        self.besoinGobelet = 1
         self.monnayeur = monnayeur.Monnayeur()
         self.cancelled = False
 
@@ -22,9 +24,14 @@ class CoffeeMaker:
         else:
             return False
 
+    def ajout_tasse(self):
+        self.besoinGobelet = 0
+        print("Il y a une tasse")
+
     def ajout_sucre(self):
-        self.demandeSucre += 1
-        print("J'ajoute du sucre")
+        if self.demandeSucre < 5:
+            self.demandeSucre += 1 
+            print("J'ajoute du sucre")
 
     def ajouter_une_piece(self, monnaie):
         if (self.stockCafe > 0 | self.stockGobelets > 0 | self.cancelled is not False): 

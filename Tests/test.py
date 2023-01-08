@@ -223,5 +223,42 @@ class MyTestCase(unittest.TestCase):
         print("Monnaie donnée : " + str(piece40))
         machine.ajouter_une_piece(piece.piece(piece40))
 
+
+    #Tests Hugo Divet
+    def test_tassePresente(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        machine.stockCafe = 30
+        machine.stockGobelets = 50
+        piece50 = piece.piece(50)
+        machine.ajout_tasse()
+        machine.ajouter_une_piece(piece50)
+
+        self.assertEqual(50 , machine.stockGobelets)
+
+    def test_remetCafe(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        machine.stockCafe = 20
+        machine.ajouter_cafe(20)
+
+        self.assertEqual(30, machine.stockCafe)
+
+    def test_remetGobelet(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        machine.stockGobelets = 40
+        machine.ajouter_gobelet(10)
+        
+        self.assertEqual(50, machine.stockGobelets)
+
+    def test_plusGobeletsMaisTasse(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        machine.stockGobelets = 0
+        machine.stockCafe = 30
+        piece20 = piece.piece(20)
+        machine.ajout_tasse()
+        machine.ajouter_une_piece(piece20)
+        machine.ajouter_une_piece(piece20)
+
+        self.assertEqual(29, machine.stockCafe)
+
 if __name__ == '__main__':
     unittest.main()
