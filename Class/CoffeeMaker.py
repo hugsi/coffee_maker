@@ -23,32 +23,24 @@ class CoffeeMaker:
             return False
 
     def ajout_sucre(self):
-        self.demandeSucre += 1 
+        self.demandeSucre += 1
         print("J'ajoute du sucre")
 
     def ajouter_une_piece(self, monnaie):
         self.monnayeur.ajouter_monnaie(monnaie)
         if self.monnayeur.check_monnaie() == 1:
-            cafeCoule = self.coule_cafe()
-            if cafeCoule == False:
-                self.monnayeur.rendre_monnaie(monnaie)
-                return False
-            return True
-        else:
-            print('Crédit insuffisant : ' + str(self.monnayeur.valeur_monnaie))
-            return False
+            self.coule_cafe()
 
-    def ajouter_cafe(self,doses):
-        if (self.stockCafe+doses>30):
+    def ajouter_cafe(self, doses):
+        if self.stockCafe + doses > 30:
             # ne pas dépasser le max de doses
             self.stockCafe = 30
         else:
             self.stockCafe += doses
 
-    def ajouter_gobelet(self,gobelets):
-        if (self.stockGobelets+gobelets>30):
+    def ajouter_gobelet(self, gobelets):
+        if (self.stockGobelets + gobelets > 30):
             # ne pas dépasser le max de gobelets
             self.stockGobelets = 50
         else:
             self.stockGobelets += gobelets
-
