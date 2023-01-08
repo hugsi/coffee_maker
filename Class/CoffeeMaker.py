@@ -9,9 +9,10 @@ class CoffeeMaker:
         self.stockSucre = 100
         self.demandeSucre = 0
         self.monnayeur = monnayeur.Monnayeur()
+        self.cancelled = False
 
     def coule_cafe(self):
-        if self.stockGobelets >= 1:
+        if self.stockGobelets >= 1 & self.cancelled is False:
             self.stockCafe -= 1
             self.stockGobelets -= 1
             self.stockSucre -= self.demandeSucre

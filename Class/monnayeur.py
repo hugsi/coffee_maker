@@ -22,11 +22,11 @@ class Monnayeur:
             print("Nombre maximal de pieces atteintes")
             self.rendre_monnaie(self.valeur_monnaie)
         for i in self.nombre_piece:
-            self.valeur_monnaie = i.valeur + self.valeur_monnaie
+            #self.valeur_monnaie = i.valeur + self.valeur_monnaie
             if int(self.valeur_monnaie) >= int(constant.COFFEE_PRICE):
-                self.valeur_monnaie = int(self.valeur_monnaie) - int(constant.COFFEE_PRICE)
-                if int(self.valeur_monnaie) > 0:
-                    self.rendre_monnaie(self.valeur_monnaie)
+                self.monnaie_rendue = int(self.valeur_monnaie) - int(constant.COFFEE_PRICE)
+                if int(self.monnaie_rendue) > 0:
+                    self.rendre_monnaie(self.monnaie_rendue)
                 return 1
             elif int(self.valeur_monnaie) < int(constant.COFFEE_PRICE):
                 return 0

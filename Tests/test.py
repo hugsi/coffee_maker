@@ -1,4 +1,5 @@
 import unittest
+import random
 
 from Class import CoffeeMaker, piece
 
@@ -161,6 +162,37 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(machine.monnayeur.monnaie_rendue, 20)
         ##self.assertFalse(machine.coule_cafe())  # aucun café servi
+
+    #Test Erwan
+    def test_rendreMonnaie(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        pieces = [1, 2, 5, 10, 20, 50, 100, 200]
+        pieceR = 0
+        for i in range(4):
+            pieceR += random.choice(pieces)
+        
+        self.assertGreater(pieceR, 40)
+        machine.ajouter_une_piece(piece.piece(pieceR))
+        
+    def test_annulation(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        pieces = [1, 2, 5, 10, 20, 50, 100, 200]
+        pieceR = 0
+        for i in range(4):
+            pieceR += random.choice(pieces)
+
+        machine.cancelled = True
+        machine.ajouter_une_piece(piece.piece(pieceR))
+            
+    def test_plusDeGoblet(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        pieces = [1, 2, 5, 10, 20, 50, 100, 200]
+        pieceR = 0
+        for i in range(4):
+            pieceR += random.choice(pieces)
+        machine.stockGobelets = 0
+        machine.ajouter_une_piece(piece.piece(pieceR))
+
 
 
 if __name__ == '__main__':
