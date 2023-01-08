@@ -162,6 +162,26 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(machine.monnayeur.monnaie_rendue, 20)
         ##self.assertFalse(machine.coule_cafe())  # aucun café servi
 
+    #Test Quentin
+    def test_cafecoule(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece40 = piece.piece(30)
+
+        machine.ajouter_une_piece(piece40)
+
+    def test_encaissement(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece50 = piece.piece(50)
+
+        self.assertEqual(50, machine.ajouter_une_piece(piece50))
+        self.assertTrue(machine.coule_cafe())
+
+    def test_plusDeCafe(self):
+        machine = CoffeeMaker.CoffeeMaker()
+        piece40 = piece.piece(40)
+        machine.stockCafe = 0
+        machine.ajouter_une_piece(piece40)
+
 
 if __name__ == '__main__':
     unittest.main()
