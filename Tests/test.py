@@ -130,7 +130,7 @@ class MyTestCase(unittest.TestCase):
         machine.ajouter_une_piece(piece5)
         machine.ajouter_une_piece(piece5)
 
-        self.assertEqual(14, machine.monnayeur.rendre_monnaie())
+        self.assertEqual(14, machine.monnayeur.valeur_monnaie)
 
     def test_totalSuperieurA40Cts(self):
         for i in range(1, 5):
@@ -160,7 +160,7 @@ class MyTestCase(unittest.TestCase):
         piece20 = piece.piece(20)
         machine.ajouter_une_piece(piece20)
 
-        self.assertEqual(machine.monnayeur.rendre_monnaie(), 20)
+        self.assertEqual(machine.monnayeur.valeur_monnaie, 20)
         ##self.assertFalse(machine.coule_cafe())  # aucun café servi
 
     #Test Erwan
