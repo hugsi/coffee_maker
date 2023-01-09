@@ -185,6 +185,7 @@ class MyTestCase(unittest.TestCase):
         machine.cancelled = True
         print("Monnaie donnée : " + str(pieceR))
         machine.ajouter_une_piece(piece.piece(pieceR))
+        self.assertEqual(machine.monnayeur.valeur_monnaie, pieceR)
             
     def test_plusDeGoblet(self):
         machine = CoffeeMaker.CoffeeMaker()
@@ -195,6 +196,7 @@ class MyTestCase(unittest.TestCase):
         machine.stockGobelets = 0
         print("Monnaie donnée : " + str(pieceR))
         machine.ajouter_une_piece(piece.piece(pieceR))
+        self.assertEqual(machine.monnayeur.valeur_monnaie, pieceR)
    
     #Test Quentin
     def test_cafecoule(self):

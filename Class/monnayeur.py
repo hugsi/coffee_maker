@@ -7,10 +7,10 @@ class Monnayeur:
     def __init__(self):
         self.list_piece = list()
         self.valeur_monnaie = 0
+        self.monnaie_rendue = 0
 
     def rendre_monnaie(self):
         print("Monnaie rendue: " + str(self.valeur_monnaie))
-        self.valeur_monnaie = 0
         self.list_piece.clear()
 
     def ajouter_monnaie(self, monnaie: piece):
