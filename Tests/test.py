@@ -226,11 +226,11 @@ class MyTestCase(unittest.TestCase):
 
     def test_plusDeau(self):
         machine = CoffeeMaker.CoffeeMaker()
-        piece40 = piece.piece(40).valeur
+        piece40 = piece.piece(40)
         machine.stockEau = 0
         print("Monnaie donnée : " + str(piece40))
-        machine.ajouter_une_piece(piece.piece(piece40))
-        self.assertEqual(machine.monnayeur.valeur_monnaie, piece40)
+        machine.ajouter_une_piece(piece40)
+        self.assertEqual(machine.monnayeur.valeur_monnaie, piece40.valeur)
 
 
     #Tests Hugo Divet
