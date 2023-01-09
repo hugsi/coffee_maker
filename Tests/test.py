@@ -204,12 +204,15 @@ class MyTestCase(unittest.TestCase):
         piece40 = piece.piece(30)
 
         machine.ajouter_une_piece(piece40)
+        self.assertEqual(machine.monnayeur.valeur_monnaie, piece40)
 
     def test_encaissement(self):
         machine = CoffeeMaker.CoffeeMaker()
         piece50 = piece.piece(50).valeur
 
+        self.assertEqual(machine.monnayeur.valeur_monnaie, piece50)
         print("Monnaie encaissée : " + str(piece50))
+       
 
     def test_plusDeCafe(self):
         machine = CoffeeMaker.CoffeeMaker()
@@ -217,6 +220,7 @@ class MyTestCase(unittest.TestCase):
         machine.stockCafe = 0
         print("Monnaie donnée : " + str(piece40))
         machine.ajouter_une_piece(piece.piece(piece40))
+        self.assertEqual(machine.monnayeur.valeur_monnaie, piece40)
 
     def test_plusDeau(self):
         machine = CoffeeMaker.CoffeeMaker()
@@ -224,6 +228,7 @@ class MyTestCase(unittest.TestCase):
         machine.stockEau = 0
         print("Monnaie donnée : " + str(piece40))
         machine.ajouter_une_piece(piece.piece(piece40))
+        self.assertEqual(machine.monnayeur.valeur_monnaie, piece40)
 
 
     #Tests Hugo Divet
